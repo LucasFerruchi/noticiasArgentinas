@@ -4,6 +4,15 @@ import "./App.css";
 
 function App() {
   const [news, setNews] = useState([]);
+  const [categories, setCategories] = useState([
+    "business",
+    "entertainment",
+    "general",
+    "health",
+    "science",
+    "sports",
+    "technology",
+  ]);
 
   useEffect(() => {
     getNews();
@@ -34,10 +43,15 @@ function App() {
                   className="form-select"
                   aria-label="Default select example"
                 >
-                  <option selected></option>
+                  {/* <option selected>Categorías</option>
                   <option value="1"></option>
                   <option value="2"></option>
-                  <option value="3"></option>
+                  <option value="3"></option> */}
+                  {categories.map((category, index) => (
+                    <option key={index} value={category}>
+                      {category}
+                    </option>
+                  ))}
                 </select>
               </div>
             </form>
